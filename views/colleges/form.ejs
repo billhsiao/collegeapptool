@@ -1,0 +1,12 @@
+<form action="/colleges<%= college.name ? '/' + college.id + '?_method=PUT' : '' %>" method="post">
+  <label>name:
+    <input type="text" name="name" value="<%= college.name ? college.name : '' %>">
+  </label><br>
+  <label>deadline:
+    <input type="text" name="deadline" value="<%= college.deadline ? college.deadline : '' %>">
+  </label><br>
+  <label>Early decision:
+  <input type="checkbox" name="earlyDecision" <%= college.earlyDecision ? 'checked' : '' %> >
+</label><br>
+  <input type="submit" value="<%= college.title ? 'Update' : 'Add' %> college">
+</form>
