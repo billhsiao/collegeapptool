@@ -6,6 +6,7 @@
 </head>
 <body>
   <a href="/colleges/new"><h2>Colleges+</h2></a>
+
   <% colleges.forEach(function(m) { %>
   <div id="name"><a href=<%=`/colleges/${m.id}/expand` %>><%= m.name %></a>
     <div>Due <%= m.deadline %></div>
@@ -20,6 +21,7 @@
   <br>
           <a href="/colleges/<%= m.id %>/edit">edit</a> |
           <a href="/colleges/<%= m.id %>?_method=DELETE">delete</a>
+          <br>
     <% }); %>
 </body>
 </html>
