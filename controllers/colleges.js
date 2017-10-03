@@ -6,7 +6,9 @@ module.exports = {
   create: create,
   edit: edit,
   update: update,
-  remove: remove
+  remove: remove,
+  expand: expand,
+  detail: detail
 };
 
 function index(req, res) {
@@ -55,7 +57,7 @@ function update(req, res) {
   //req.body.cast = req.body.cast.replace(/\s*,\s*/g, ',');
   //if (req.body.cast) req.body.cast = req.body.cast.split(',');
   College.findByIdAndUpdate(req.params.id, req.body, function(err, college) {
-    if (err) return res.render('colleges/' + req.params.id + '/edit');
+    if (err) return res.render(`colleges/'${req.params.id}'/edit`);
     res.redirect('/colleges');
   });
 }
@@ -65,3 +67,29 @@ function remove(req, res) {
     res.redirect('/colleges');
   });
 }
+
+function expand(req, res, next) {
+  College.findById(req.params.id, function(err, college) {
+    // this way of handling errors triggers the error handlers
+    // defined near the bottom of server.js
+    if (err) return next(err);
+    // the object below is using object shorthand property syntax
+    res.render('colleges/expand', {college});
+  });
+}
+function detail(req, res) {
+  //if (!req.body.nowShowing) req.body.nowShowing = false;
+  //req.body.cast = req.body.cast.replace(/\s*,\s*/g, ',');
+  //if (req.body.cast) req.body.cast = req.body.cast.split(',');
+  College.findById(req.params.id, req.body, function(err, college) {
+    if (err) return res.render(`colleges/'${req.params.id}'/expand`);
+    res.redirect('/colleges');
+  });
+}
+
+//
+// function expand(req, res) {
+//   College.find({}, function(err, colleges) {
+//     res.render('colleges/index', {colleges: colleges});
+//   });
+// }

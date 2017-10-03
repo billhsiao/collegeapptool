@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All colleges</title>
+</head>
+<body>
+  <h2>All colleges</h2>
+  <a href="/colleges/new">new</a>
+  <table>
+    <tr>
+      <th>College Name</th>
+      <br>
+      <th>DueDate<br></th>
+      <br>
+      <th>earlyDecision</th>
+      <br>
+    </tr>
+    <% colleges.forEach(function(m) { %>
+      <tr>
+        <td><%= m.name %></td>
+        <br>
+        <td><%= m.deadline %></td>
+        <td><%= m.earlyDecision %></td>
+        <br>
+        <td><%= m.mainPrompt %></td>
+        <br>
+        <td><%= m.supplementaryPrompt %></td>
+        <td>
+          <a href="/colleges/<%= m.id %>/edit">edit</a> |
+          <a href="/colleges/<%= m.id %>?_method=DELETE">delete</a>
+          <!-- if the above does not work, try using a form like below -->
+          <!--
+          <form method="POST" action="/colleges/<%= m.id %>?_method=DELETE">
+            <button type="submit">delete</button>
+          </form>
+          -->
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-// shortcut to the mongoose.Schema function
 var Schema = mongoose.Schema;
+var ObjectId = Schema.Types.ObjectId;
 
 var collegeSchema = new mongoose.Schema({
   name: {
@@ -13,6 +13,21 @@ var collegeSchema = new mongoose.Schema({
   },
   earlyDecision: {
     type: Boolean,
+  },
+  mainPrompt: {
+    type: String,
+  },
+  mainEssay: {
+    type: String,
+  },
+  
+  drafts: [{type: ObjectId, ref: 'Drafts'}],
+
+  supplementaryPrompt: {
+    type: String,
+  },
+  supplementaryEssay: {
+    type: String,
   },
 
 }, {

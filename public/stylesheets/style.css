@@ -3,6 +3,26 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+
 a {
   color: #00B7FF;
+}
+
+div {
+
+}
+
+.prompts {
+  width: 300px;
+}
+
+#name {
+  font-size: 50px;
+}
+
+#id {
+  font-size:50pt;
+  height:420px;
+  width:200px;
 }

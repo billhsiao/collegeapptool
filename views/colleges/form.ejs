@@ -8,5 +8,11 @@
   <label>Early decision:
   <input type="checkbox" name="earlyDecision" <%= college.earlyDecision ? 'checked' : '' %> >
 </label><br>
-  <input type="submit" value="<%= college.title ? 'Update' : 'Add' %> college">
+<label>Main Essay:
+  <input class="prompts" type="text" name="mainPrompt" value="<%= college.mainPrompt ? college.mainPrompt : '' %>">
+</label><br>
+<label>Supplemenetary:
+  <input class="prompts" type="text" name="supplementaryPrompt" value="<%= college.supplementaryPrompt ? college.supplementaryPrompt : '' %>">
+</label><br>
+  <input type="submit" value="<%= college.name ? 'Update' : 'Add' %> college">
 </form>

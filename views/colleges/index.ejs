@@ -5,31 +5,21 @@
   <title>All colleges</title>
 </head>
 <body>
-  <h2>All colleges</h2>
-  <a href="/colleges/new">new</a>
-  <table>
-    <tr>
-      <th>College Name</th>
-      <th>DueDate<br></th>
-      <th>earlyDecision</th>
-    </tr>
-    <% colleges.forEach(function(m) { %>
-      <tr>
-        <td><%= m.name %></td>
-        <td><%= m.deadline %></td>
-        <td><%= m.earlyDecision %></td>
-        <td>
+  <a href="/colleges/new"><h2>Colleges+</h2></a>
+  <% colleges.forEach(function(m) { %>
+  <div id="name"><a href=<%=`/colleges/${m.id}/expand` %>><%= m.name %></a>
+    <div>Due <%= m.deadline %></div>
+    </div>
+  <div> <%= m.earlyDecision ? 'early decision' : '' %></div>
+  <br>
+  <div>Main Prompt</div>
+  <%= m.mainPrompt %>
+  <br>
+  <div>supplementary prompt</div>
+  <%= m.supplementaryPrompt %>
+  <br>
           <a href="/colleges/<%= m.id %>/edit">edit</a> |
           <a href="/colleges/<%= m.id %>?_method=DELETE">delete</a>
-          <!-- if the above does not work, try using a form like below -->
-          <!--
-          <form method="POST" action="/colleges/<%= m.id %>?_method=DELETE">
-            <button type="submit">delete</button>
-          </form>
-          -->
-        </td>
-      </tr>
     <% }); %>
-  </table>
 </body>
 </html>
