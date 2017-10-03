@@ -20,7 +20,7 @@ var collegeSchema = new mongoose.Schema({
   mainEssay: {
     type: String,
   },
-  
+
   drafts: [{type: ObjectId, ref: 'Drafts'}],
 
   supplementaryPrompt: {
@@ -34,5 +34,4 @@ var collegeSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Compile the schema into a model and export it
 module.exports = mongoose.model('College', collegeSchema);
