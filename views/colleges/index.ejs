@@ -1,7 +1,12 @@
 <% include ../partials/head %>
 <body>
+<<<<<<< HEAD
   <h1>College Counseling</h1>
   <a href="/colleges/new"><h2>Essay+</h2></a>
+=======
+  <a href="/colleges/new"><h2>Colleges+</h2></a>
+
+>>>>>>> refs/remotes/origin/master
   <% colleges.forEach(function(m) { %>
   <div id="name"><a href=<%=`/colleges/${m.id}/expand` %>><%= m.name %></a>
     <div>Due <%= m.deadline %></div>
@@ -12,6 +17,7 @@
   <br>
           <a href="/colleges/<%= m.id %>/edit">edit</a> |
           <a href="/colleges/<%= m.id %>?_method=DELETE">delete</a>
+          <br>
     <% }); %>
 </body>
 </html>
