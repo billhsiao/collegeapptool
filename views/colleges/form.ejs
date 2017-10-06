@@ -1,18 +1,19 @@
 <form action="/colleges<%= college.name ? '/' + college.id + '?_method=PUT' : '' %>" method="post">
-  <label>name:
-    <input type="text" name="name" value="<%= college.name ? college.name : '' %>">
+  <label>
+    <input type="text" name="name" value="<%= college.name ? college.name : '' %>" placeholder="name">
   </label><br>
-  <label>deadline:
-    <input type="text" name="deadline" value="<%= college.deadline ? college.deadline : '' %>">
+  <label>
+    <input type="text" name="deadline" value="<%= college.deadline ? college.deadline : '' %>" placeholder="deadline">
   </label><br>
+<label>
+  <textarea class="prompts" type="text" name="mainPrompt" value="<%= college.mainPrompt ? college.mainPrompt : '' %>" placeholder="essay contents"></textarea>
+</label><br>
+<label>
+  <input class="prompts" type="text" name="supplementaryPrompt" value="<%= college.supplementaryPrompt ? college.supplementaryPrompt : '' %>" placeholder="supplementary">
+</label><br>
+
   <label>Early decision:
   <input type="checkbox" name="earlyDecision" <%= college.earlyDecision ? 'checked' : '' %> >
-</label><br>
-<label>Main Essay:
-  <input class="prompts" type="text" name="mainPrompt" value="<%= college.mainPrompt ? college.mainPrompt : '' %>">
-</label><br>
-<label>Supplemenetary:
-  <input class="prompts" type="text" name="supplementaryPrompt" value="<%= college.supplementaryPrompt ? college.supplementaryPrompt : '' %>">
 </label><br>
   <input type="submit" value="<%= college.name ? 'Update' : 'Add' %> college">
 </form>
