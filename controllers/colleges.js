@@ -38,7 +38,7 @@ function create(req, res) {
     if (err) return res.render('colleges/new');
     console.log(college);
     // for now, redirect right back to new.ejs
-    res.redirect('/colleges/new');
+    res.redirect('/colleges');
   });
 }
 

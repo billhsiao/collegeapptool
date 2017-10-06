@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>All colleges</title>
-</head>
+<% include ../partials/head %>
 <body>
-  <a href="/colleges/new"><h2>Colleges+</h2></a>
+  <a href="/colleges/new"><h2>Essay+</h2></a>
   <% colleges.forEach(function(m) { %>
   <div id="name"><a href=<%=`/colleges/${m.id}/expand` %>><%= m.name %></a>
     <div>Due <%= m.deadline %></div>
